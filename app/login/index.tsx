@@ -24,74 +24,77 @@ import {
   TextLinkContent,
 } from "@/components/styles";
 import { Fontisto, Ionicons, Octicons } from "@expo/vector-icons";
-import { Icon } from "@expo/vector-icons/build/createIconSet";
+
+import KeyboardAvoidingWrapper from "@/components/KeyboardAvoidingWrapper";
 
 const Login = () => {
   const [pwdHidden, setPwdHidden] = useState(true);
   return (
-    <StyledContainer>
-      <InnerContainer>
-        <PageTitle>ToDo App</PageTitle>
-        <SubTitle>Account Login</SubTitle>
-        <Formik
-          initialValues={{
-            userId: "",
-            password: "",
-          }}
-          onSubmit={(values) => console.log(values)}>
-          {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <StyledFormArea>
-              <CustomTextInput
-                label="Email or Username"
-                icon="mail"
-                placeholder="andy@gmail.com"
-                placeholderTextColor={colors.darkLight}
-                onChangeText={handleChange("userId")}
-                onBlur={handleBlur("userId")}
-                value={values.userId}
-                keyboardType="text"
-              />
-              <CustomTextInput
-                label="Password"
-                icon="lock"
-                placeholder="* * * * * * * *"
-                placeholderTextColor={colors.darkLight}
-                onChangeText={handleChange("password")}
-                onBlur={handleBlur("password")}
-                value={values.password}
-                keyboardType="password"
-                secureTextEntry={pwdHidden}
-                isPwd={true}
-                pwdHidden={pwdHidden}
-                setPwdHidden={setPwdHidden}
-              />
-              <MsgBox>. . .</MsgBox>
-              <StyledButton onPress={() => handleSubmit}>
-                <StyledButtonText>
-                  {" "}
-                  <Link href="/home">Login</Link>{" "}
-                </StyledButtonText>
-              </StyledButton>
-              <Line />
-              <StyledButton google={true} onPress={() => handleSubmit}>
-                <Fontisto name="google" size={25} color={colors.primary} />
-                <StyledButtonText google={true}>
-                  Sign in with Google
-                </StyledButtonText>
-              </StyledButton>
-              <ExtraView>
-                <ExtraText>Don't have an account alread? </ExtraText>
-                <TextLink>
-                  <TextLinkContent>
-                    <Link href="/sign-up">Signup</Link>{" "}
-                  </TextLinkContent>
-                </TextLink>
-              </ExtraView>
-            </StyledFormArea>
-          )}
-        </Formik>
-      </InnerContainer>
-    </StyledContainer>
+    <KeyboardAvoidingWrapper>
+      <StyledContainer>
+        <InnerContainer>
+          <PageTitle>ToDo App</PageTitle>
+          <SubTitle>Account Login</SubTitle>
+          <Formik
+            initialValues={{
+              userId: "",
+              password: "",
+            }}
+            onSubmit={(values) => console.log(values)}>
+            {({ handleChange, handleBlur, handleSubmit, values }) => (
+              <StyledFormArea>
+                <CustomTextInput
+                  label="Email or Username"
+                  icon="mail"
+                  placeholder="andy@gmail.com"
+                  placeholderTextColor={colors.darkLight}
+                  onChangeText={handleChange("userId")}
+                  onBlur={handleBlur("userId")}
+                  value={values.userId}
+                  keyboardType="text"
+                />
+                <CustomTextInput
+                  label="Password"
+                  icon="lock"
+                  placeholder="* * * * * * * *"
+                  placeholderTextColor={colors.darkLight}
+                  onChangeText={handleChange("password")}
+                  onBlur={handleBlur("password")}
+                  value={values.password}
+                  keyboardType="password"
+                  secureTextEntry={pwdHidden}
+                  isPwd={true}
+                  pwdHidden={pwdHidden}
+                  setPwdHidden={setPwdHidden}
+                />
+                <MsgBox>. . .</MsgBox>
+                <StyledButton onPress={() => handleSubmit}>
+                  <StyledButtonText>
+                    {" "}
+                    <Link href="/home">Login</Link>{" "}
+                  </StyledButtonText>
+                </StyledButton>
+                <Line />
+                <StyledButton google={true} onPress={() => handleSubmit}>
+                  <Fontisto name="google" size={25} color={colors.primary} />
+                  <StyledButtonText google={true}>
+                    Sign in with Google
+                  </StyledButtonText>
+                </StyledButton>
+                <ExtraView>
+                  <ExtraText>Don't have an account alread? </ExtraText>
+                  <TextLink>
+                    <TextLinkContent>
+                      <Link href="/sign-up">Signup</Link>{" "}
+                    </TextLinkContent>
+                  </TextLink>
+                </ExtraView>
+              </StyledFormArea>
+            )}
+          </Formik>
+        </InnerContainer>
+      </StyledContainer>
+    </KeyboardAvoidingWrapper>
   );
 };
 

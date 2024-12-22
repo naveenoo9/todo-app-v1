@@ -19,7 +19,7 @@ const HomePage = () => {
         <WelcomeContainer>
           <StyledButton>
             <StyledButtonText>
-              <Link href="/">Go Back</Link>
+              <Link href="/">Logout</Link>
             </StyledButtonText>
           </StyledButton>
         </WelcomeContainer>
